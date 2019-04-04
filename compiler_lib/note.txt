@@ -1,0 +1,12 @@
+此为JavaLib库
+使用：
+1、在本lib的build中添加
+    implementation 'com.google.auto.service:auto-service:1.0-rc3'
+    compile 'com.squareup:javapoet:1.7.0'  // 用于生成Java文件的库
+
+2、在appModule下添加：annotationProcessor project(':compiler_lib')
+
+3、创建一个类：这个类就是编译期注解编译器会根据它来创建Java文件
+    MyProcessor extends AbstractProcessor{}  ---> [并添加 @AutoService(Processor.class)  这个注解不要忘了，否则无法生成Java文件]
+
+4、rebuild，即可在 \app\build\generated\source\apt\debug 下生成我们需要的 .java文件

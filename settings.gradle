@@ -1,1 +1,1 @@
-include ':app', ':eventbus_lib'
+include ':app', ':eventbus_lib', ':compiler_lib'

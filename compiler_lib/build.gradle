@@ -1,0 +1,13 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // @AutoService 注册我们的注解，告诉JVM我们这个moudle里面自定义注解
+    implementation 'com.google.auto.service:auto-service:1.0-rc3'
+    // 用于生成Java文件的库
+    compile 'com.squareup:javapoet:1.7.0'
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
