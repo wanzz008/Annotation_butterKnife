@@ -13,6 +13,7 @@ import com.wzz.eventbus_lib.ThreadMode;
 
 /**
  * 手写EventBus框架的测试Activity
+ * EventBus原理： 反射 + 注解
  */
 public class MainActivity extends AppCompatActivity {
 
