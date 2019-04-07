@@ -16,6 +16,7 @@ import javax.annotation.processing.Messager;
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
+import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.util.Elements;
@@ -69,9 +70,10 @@ public class MyProcessor extends AbstractProcessor{
     @Override
     public synchronized void init(ProcessingEnvironment processingEnvironment) {
         super.init(processingEnvironment);
+
+        mFiler = processingEnv.getFiler();
         mElementUtils = processingEnv.getElementUtils();
         mMessager = processingEnv.getMessager();
-        mFiler = processingEnv.getFiler();
     }
 
     @Override
@@ -80,7 +82,7 @@ public class MyProcessor extends AbstractProcessor{
         // 1、不使用三方工具类，利用原始的方法进行文件写入：
         Writer writer = null;
         try {
-            //创建了一个java文件
+            //mFiler.createSourceFile会自动为我们创建了一个java文件
             JavaFileObject javaFileObject = mFiler.createSourceFile("com.wzz.test"+"."+"TestDemo");
             writer = javaFileObject.openWriter();
             //第一行写包名
@@ -139,6 +141,15 @@ public class MyProcessor extends AbstractProcessor{
         types.add(Override.class.getCanonicalName());
 //        types.add(OnClick.class.getCanonicalName());
         return types;
+    }
+
+    /**
+     * 添加支持的JDK版本
+     * @return
+     */
+    @Override
+    public SourceVersion getSupportedSourceVersion() {
+        return SourceVersion.latestSupported();
     }
 }
 
