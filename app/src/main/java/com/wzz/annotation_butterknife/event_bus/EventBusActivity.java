@@ -15,13 +15,13 @@ import com.wzz.eventbus_lib.ThreadMode;
  * 手写EventBus框架的测试Activity
  * EventBus原理： 反射 + 注解
  */
-public class MainActivity extends AppCompatActivity {
+public class EventBusActivity extends AppCompatActivity {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_eventbus);
 
         EventBus.getDefault().reister( this );
     }
@@ -61,4 +61,5 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         EventBus.getDefault().unregister( this );
     }
+
 }

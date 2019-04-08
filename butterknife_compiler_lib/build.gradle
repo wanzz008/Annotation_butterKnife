@@ -1,7 +1,10 @@
 apply plugin: 'java-library'
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    // 依赖注解库
+    implementation project(':butterknife_annotation_lib')
 
     // @AutoService 注册我们的注解，告诉JVM我们这个moudle里面自定义注解
     implementation 'com.google.auto.service:auto-service:1.0-rc3'

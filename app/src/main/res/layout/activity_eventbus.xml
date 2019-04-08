@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".event_bus.MainActivity">
+    tools:context=".event_bus.EventBusActivity">
 
     <TextView
         android:layout_width="wrap_content"

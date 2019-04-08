@@ -1,1 +1,1 @@
-include ':app', ':eventbus_lib', ':compiler_lib'
+include ':app', ':eventbus_lib', ':compiler_lib', ':butterknife_annotation_lib', ':butterknife_compiler_lib'

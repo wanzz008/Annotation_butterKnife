@@ -17,7 +17,7 @@ import java.util.concurrent.Executors;
  */
 public class EventBus {
 
-    // 清单 用来存储所有的订阅方法
+    // 清单 用来存储所有的订阅方法 : key为当前类名  value为当前类中方法上所有带有注解的集合
     private Map< Object , List<MethodManager> > map ;
 
     //volatile修饰的变量不允许线程内部缓存以及重新排序，即直接修改内存
@@ -139,6 +139,9 @@ public class EventBus {
                                     invoke( method , object , message);
                                 }
                                 break;
+
+                            default:
+                                    break;
                         }
 
                     }
